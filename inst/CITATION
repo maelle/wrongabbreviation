@@ -7,6 +7,7 @@ authors <- utils:::.read_authors_at_R_field(authors)
 authors <- Filter(function(e) {!(is.null(e$given) && is.null(e$family)) && !is.na(match("aut", e$role))}, authors)
 authors <- format(authors, include = c("given", "family"))
 # TODO fix abbreviation of Szabolcs' name, should be Sz not S
+# could not get https://tex.stackexchange.com/q/26332/6302 to work no matter backslashes
 authors <- paste(paste(head(authors, -1L), collapse = ", "), tail(authors, 1L), sep = " and ")
 bibentry(bibtype = "Manual",
          title = "{igraph}: Network Analysis and Visualization in R",
